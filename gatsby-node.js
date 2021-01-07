@@ -12,16 +12,16 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const { data } = await graphql(`
-    {
-      allShopifyProduct {
-        edges {
-          node {
-            shopifyId
-            handle
-          }
+  {
+    allShopifyProduct{
+      edges{
+        node{
+          shopifyId
+          handle
         }
       }
     }
+  }
   `);
 
   data.allShopifyProduct.edges.forEach(({ node }) => {
@@ -29,8 +29,9 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `products/${node.handle}`,
       context: {
         shopifyId: node.shopifyId,
+
       },
       component: path.resolve('./src/templates/ProductTemplate/index.js'),
     });
-  });
+  })
 };
