@@ -4,10 +4,17 @@ import { ImageGalleryWrapper } from './styles';
 import ImageThumbnail from './ImageThumbnail';
 
 
-export function ImageGallery({ images }) {
+export function ImageGallery({ selectedVariantImageId, images }) {
 
-  const [activeImageThumbnail, setActivaImageThumbnail] = React.useState(images[0]);
+  const [activeImageThumbnail, setActivaImageThumbnail] = React.useState(
+    images.find(({ id }) => id === selectedVariantImageId) || images[0]
+  );
 
+  React.useEffect(() => {
+    setActivaImageThumbnail(
+      images.find(({ id }) => id === selectedVariantImageId) || images[0]
+      );
+  }, selectedVariantImageId, images, setActivaImageThumbnail);
 
   const handleClick = img => {
     setActivaImageThumbnail(img)
