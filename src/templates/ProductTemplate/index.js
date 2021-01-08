@@ -9,9 +9,9 @@ import queryString from 'query-string';
 import { ProductQuantitiyAdder } from '../../components/ProductQuantityAdder';
 
 export const query = graphql`
-    query productQuery($shopifyId: String){
+    query ProductQuery($shopifyId: String){
       
-        shopifyProduct(shopifyId: {eq: $shopifyId}){
+        shopifyProduct(shopifyId: { eq: $shopifyId }){
          ...ShopifyProductFields
         }
     }

@@ -1,13 +1,15 @@
 import React from 'react';
-import { Layout, SEO } from 'components';
+import { Layout, SEO, HomePageCollectionGrid } from 'components';
 import ProductContext from 'context/ProductContext';
 
 const IndexPage = () => {
   const {collections} = React.useContext(ProductContext);
-  console.log(collections);
 
   return (
-    <Layout></Layout>
+    <Layout>
+      <HomePageCollectionGrid 
+      collections = {collections.filter((c) => c.title !== 'Featured hats')}/>
+    </Layout>
   )
 }
 

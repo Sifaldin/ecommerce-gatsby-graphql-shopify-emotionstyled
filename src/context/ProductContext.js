@@ -1,8 +1,9 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
-const query = graphql`{
-  allShopifyCollection {
+const query = graphql`
+{
+  allShopifyCollection(sort: {fields: title, order: ASC}) {
     edges {
       node {
         products {
@@ -10,6 +11,16 @@ const query = graphql`{
         }
         title
         description
+        shopifyId
+        image{
+          localFile{
+            childImageSharp{
+              fluid(maxWidth: 1200){
+             ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
       }
     }
   }
