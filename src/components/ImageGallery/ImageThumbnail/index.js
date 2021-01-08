@@ -4,7 +4,7 @@ import { ImageThumbnailWrapper } from "./style";
 
 
 
-export default function ImageThumbnail({ isActive, onClick, image }) {
+export default function ImageThumbnail({ isActive, onClick, image}) {
   const handleClick = () => {
     onClick(image);
   }

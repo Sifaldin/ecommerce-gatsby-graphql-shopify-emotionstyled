@@ -14,7 +14,7 @@ export function ImageGallery({ selectedVariantImageId, images }) {
     setActivaImageThumbnail(
       images.find(({ id }) => id === selectedVariantImageId) || images[0]
       );
-  }, selectedVariantImageId, images, setActivaImageThumbnail);
+  }, [selectedVariantImageId, images, setActivaImageThumbnail]);
 
   const handleClick = img => {
     setActivaImageThumbnail(img)
