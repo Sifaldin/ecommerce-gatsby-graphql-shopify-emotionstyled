@@ -3,20 +3,34 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 const query = graphql`
 {
-  allShopifyCollection(sort: {fields: title, order: ASC}) {
+  allShopifyProduct {
+    edges {
+      node {
+        ...ShopifyProductFields
+        
+      }
+    }
+  }
+  allShopifyCollection(sort: { fields: title, order: ASC }) {
     edges {
       node {
         products {
           ...ShopifyProductFields
+          handle
+        priceRange {
+          minVariantPrice {
+            amount
+          }
+        }
         }
         title
         description
         shopifyId
-        image{
-          localFile{
-            childImageSharp{
-              fluid(maxWidth: 1200){
-             ...GatsbyImageSharpFluid_withWebp
+        image {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1200) {
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
@@ -40,7 +54,7 @@ export function ProductContextProvider({ children }) {
     <ProductContext.Provider
       value={{
         products: [],
-        collections: [allShopifyCollection.edges.map(({ node }) => node)],
+        collections: allShopifyCollection.edges.map(({ node }) => node) || [],
       }}
     >
       {children}

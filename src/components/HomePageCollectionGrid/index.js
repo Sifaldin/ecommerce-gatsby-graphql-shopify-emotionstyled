@@ -1,21 +1,33 @@
 import React from 'react';
 import { CollectionTile } from '../CollectionTile';
+import {RemainingCollections} from './styles';
 
 export function HomePageCollectionGrid({ collections }) {
   console.log(collections);
-  const saleTile = collections.find(collection => collection.title === 'Sale');
-  console.log(saleTile);
+  const saleCollection = collections.find(collection => collection.title === 'Sale');
+  const remainingCollections = collections.filter(c => c.title !== 'Sale');
 
   return <div>
-   { collections.map(c => c.map((realC) => {
-      return (<CollectionTile
-        title={realC.title}
-        description={realC.description}
-        backgroundImage={realC.image.localFile.childImageSharp.fluid}
-        key={realC.shopifyId}
+    {!!saleCollection && (
+      <CollectionTile
+        sale
+        title={saleCollection.title}
+        description={saleCollection.description}
+        backgroundImage={saleCollection.image.localFile.childImageSharp.fluid}
+        key={saleCollection.shopifyId}
+      />)}
 
-      />)
-    }))}
+    <RemainingCollections>
+      {remainingCollections.map(c => (
+        <CollectionTile
+          title={c.title}
+          description={c.description}
+          backgroundImage={c.image.localFile.childImageSharp.fluid}
+          key={c.shopifyId}
+        />))}
+
+    </RemainingCollections>
+
 
   </div>
 

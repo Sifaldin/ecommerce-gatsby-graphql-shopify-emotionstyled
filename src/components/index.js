@@ -11,3 +11,5 @@ export * from './QuantityAdjuster';
 export * from './RemoveLineItem';
 export * from './HomePageCollectionGrid';
 export * from './CollectionTile';
+export * from './FeaturedProducts';
+export * from './ProductsGrid';
