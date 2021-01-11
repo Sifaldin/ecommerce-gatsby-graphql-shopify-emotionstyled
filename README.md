@@ -4,9 +4,23 @@
 
 ## fully functioning e-commerce website, querying Shopify data with GraphQL to automatically generate our static pages.
 
-## dynamic cart and inventory check to make sure products are available in real-time.
+## dynamic pages built to mobile first design with SEO applications.
+<img src="src\images\phone.PNG">
+<img src="src\images\tablet.PNG">
+<img src="src\images\homePage.PNG">
+
+## dynamic product page querying Shopify data with GraphQL
+<img src="src\images\productPage.PNG">
+
+## dynamic cart and checkout page with inventory check to make sure products are available in real-time.
 
 <img src="src\images\cartPage.PNG">
+<img src="src\images\checkout.PNG">
+
+
+## dynamic Products page with categories and filters and functional search methods.
+
+<img src="src\images\productsPage.PNG">
 
 ### Gatsby.js, Shopify, GraphQL, and styled-components!
 
