@@ -1,8 +1,10 @@
 import React from 'react';
 import CartContext from 'context/CartContext';
-import { CartFooter, CartHeader, CartItem } from './styles'
+import { CartFooter, CartHeader, CartItem, Footer } from './styles'
 import { QuantityAdjuster } from '../QuantityAdjuster';
 import { RemoveLineItem } from '../RemoveLineItem';
+import { navigate } from '@reach/router';
+import { Button } from '../Button';
 
 export function CartContents() {
   const { checkout, updateLineItem } = React.useContext(CartContext);
@@ -15,12 +17,16 @@ export function CartContents() {
   return (
     <section>
       <h1>Your Cart</h1>
-      <CartHeader>
-        <div>Product</div>
-        <div>Unit Price</div>
-        <div>Quantity</div>
-        <div>Amount</div>
-      </CartHeader>
+
+      {!!checkout?.lineItems && (
+        <CartHeader>
+          <div>Product</div>
+          <div>Unit Price</div>
+          <div>Quantity</div>
+          <div>Amount</div>
+        </CartHeader>
+      )}
+
       {checkout?.lineItems?.map(item => {
         return (
           <CartItem key={item.variant.id}>
@@ -50,15 +56,44 @@ export function CartContents() {
         )
       })}
 
-      <CartFooter>
+      {!!checkout?.lineItems && (
+        <CartFooter>
+          <div>
+            <strong>Total:</strong>
+          </div>
+          <div>
+            <span>SEK{checkout?.totalPrice}</span>
+          </div>
+        </CartFooter>
+      )}
+    
+
+      {!checkout?.lineItems && (
+        <h4>Your Cart is Empty.</h4>
+      )}
+
+
+      <Footer>
         <div>
-          <strong>Total:</strong>
-        </div>
-        <div>
-          <span>SEK{checkout?.totalPrice}</span>
+          <Button onClick={() => navigate(-1)}>
+            Continue shopping
+          </Button>
         </div>
 
-      </CartFooter>
+
+
+        <div>
+
+          {!!checkout?.webUrl && <Button onClick={() => {
+            window.location.href = checkout.webUrl
+          }}>
+            Checkout
+          </Button>}
+
+        </div>
+
+
+      </Footer>
     </section>
   )
 

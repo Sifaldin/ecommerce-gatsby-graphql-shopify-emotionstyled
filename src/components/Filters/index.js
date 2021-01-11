@@ -8,7 +8,6 @@ export function Filters(){
 
   const {collections} = React.useContext(ProductContext);
 
-
   return (
     <FiltersWrapper>
       <strong>
@@ -20,8 +19,4 @@ export function Filters(){
       id={c.shopifyId} />))}
     </FiltersWrapper>
   )
-
-
-
-
 }

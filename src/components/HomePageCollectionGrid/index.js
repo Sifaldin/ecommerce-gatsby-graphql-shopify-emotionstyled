@@ -11,6 +11,7 @@ export function HomePageCollectionGrid({ collections }) {
     {!!saleCollection && (
       <CollectionTile
         sale
+        destination = {`all-products?c=${encodeURIComponent(saleCollection.shopifyId)}`}
         title={saleCollection.title}
         description={saleCollection.description}
         backgroundImage={saleCollection.image.localFile.childImageSharp.fluid}
@@ -20,6 +21,7 @@ export function HomePageCollectionGrid({ collections }) {
     <RemainingCollections>
       {remainingCollections.map(c => (
         <CollectionTile
+          destination = {`all-products?c=${encodeURIComponent(c.shopifyId)}`}
           title={c.title}
           description={c.description}
           backgroundImage={c.image.localFile.childImageSharp.fluid}

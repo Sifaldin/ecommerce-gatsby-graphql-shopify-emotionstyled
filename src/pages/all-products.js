@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, ProductsGrid } from '../components';
+import { Layout, ProductsGrid, SEO } from '../components';
 import ProductContext from 'context/ProductContext';
 import styled from 'styled-components';
 import { Filters } from '../components';
@@ -59,6 +59,9 @@ export default function AllProducts() {
 
   return (
     <Layout>
+      <SEO
+        title={"Products Page"}
+        description={"All products"} />
       {!!searchTerm && !!filteredProducts.length &&
         <h4>Searching for: <strong>'{searchTerm}'</strong></h4>}
 
@@ -76,7 +79,7 @@ export default function AllProducts() {
             <div>
               To help with your search please try:
                 <br />
-                <br />
+              <br />
               <li>
                 Check your speling
               </li>
