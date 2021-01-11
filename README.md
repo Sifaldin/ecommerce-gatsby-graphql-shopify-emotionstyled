@@ -1,5 +1,7 @@
 # Liberating the site from legacy CMSs.
 
+### Deployed with Netlify: https://jolly-raman-93b875.netlify.app/
+
 ## HYBRID dynamic + static Gatsby e-commerce site using Shopify to manage our product data and orders. Using Gatsby.js with a Shopify backend! Gatsby JS uses React JS and GraphQL to generate and build static pages from a given dataset. setting up Shopify to manage our products and customer orders, while using GatsbyJS to generate a blazing-fast server-rendered React website from Shopify data.
 
 ## fully functioning e-commerce website, querying Shopify data with GraphQL to automatically generate our static pages.
