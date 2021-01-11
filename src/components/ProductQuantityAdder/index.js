@@ -1,6 +1,6 @@
 import React from 'react';
 import { ProductQuanitityAdderWrapper } from './style'
-import { Button } from '../button';
+import { Button } from '../Button';
 import { Input } from '../Input';
 import CartContext from 'context/CartContext';
 
