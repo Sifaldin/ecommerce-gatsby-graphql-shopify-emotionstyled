@@ -15,7 +15,7 @@
 ## dynamic cart and checkout page with inventory check to make sure products are available in real-time.
 
 <img src="src\images\cartPage.PNG">
-<img src="src\images\checkout.PNG">
+<img src="src\images\checkout.png">
 
 
 ## dynamic Products page with categories and filters and functional search methods.
